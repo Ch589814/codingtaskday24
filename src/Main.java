@@ -1,13 +1,30 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+import java.util.function.BiFunction;
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Define operations as BiFunction lambdas
+        BiFunction<Integer, Integer, Integer> addition = (a, b) -> a + b;
+        BiFunction<Integer, Integer, Integer> subtraction = (a, b) -> a - b;
+        BiFunction<Integer, Integer, Integer> multiplication = (a, b) -> a * b;
+        BiFunction<Integer, Integer, Integer> division = (a, b) -> a / b;
+
+        // Sample values
+        int num1 = 10;
+        int num2 = 5;
+
+        // Test the calculate method with each operation
+        System.out.println("Addition: " + num1 + " + " + num2 + " = " +
+                FunctionalCalculator.calculate(num1, num2, addition));
+
+        System.out.println("Subtraction: " + num1 + " - " + num2 + " = " +
+                FunctionalCalculator.calculate(num1, num2, subtraction));
+
+        System.out.println("Multiplication: " + num1 + " * " + num2 + " = " +
+                FunctionalCalculator.calculate(num1, num2, multiplication));
+
+        System.out.println("Division: " + num1 + " / " + num2 + " = " +
+                FunctionalCalculator.calculate(num1, num2, division));
+    }
 }
